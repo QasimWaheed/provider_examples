@@ -1,4 +1,6 @@
+import 'package:details_provider_testing/services/provider_object.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../widget/cheap_widget.dart';
 import '../widget/expensive_widget.dart';
@@ -26,6 +28,18 @@ class MyHomePage extends StatelessWidget {
           Row(
             children: const [
               Expanded(child: ObjectProviderWidget()),
+            ],
+          ),
+          Row(
+            children: [
+              TextButton(
+                onPressed: () => context.read<ObjectProvider>().stop(),
+                child: const Text("Stop"),
+              ),
+              TextButton(
+                onPressed: () => context.read<ObjectProvider>().start(),
+                child: const Text("Start"),
+              ),
             ],
           ),
         ],
